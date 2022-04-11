@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Level1DoorTrigger : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Level1DoorTrigger : MonoBehaviour
     [SerializeField] private GameObject _monitor3;
     [SerializeField] private GameObject _monitor4;
     [SerializeField] private GameObject _monitor5;
+    [SerializeField] private Text island;
     private Color _check1 = new Color(0, 0, 1, 1);
     private Color _check2 = new Color(0, 0, 1, 1);
     private Color _check3 = new Color(0, 0, 1, 1);
@@ -30,6 +32,7 @@ public class Level1DoorTrigger : MonoBehaviour
             {
                 target.SendMessage("Activate");
             }
+            island.text = "Make your way too the second island to complete the parkour, unlock the door, and eat the Donut";
         }
             
 

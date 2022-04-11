@@ -33,7 +33,7 @@ public class PlayerCharacter : MonoBehaviour
     }
     void Update()
     {
-        if (transform.position.y < -15f || _health <= 0 && !_gameOverBool)
+        if (transform.position.y < -15f || _health <= 0)
         {
             _gameOverBool = true;
             GameOver();
@@ -76,13 +76,13 @@ public class PlayerCharacter : MonoBehaviour
             _gameWon.gameObject.SetActive(true);
             _gameOverBool = true;
         }
-        else if(_health <= 0 && !_gameOverBool)
+        else if(_health <= 0 && _gameOverBool)
         {
             _gameOver.gameObject.SetActive(true);
             _game.text = "Game Over!";
             _gameOverBool = true;
         }
-        else if (transform.position.y < -15f && !_gameOverBool)
+        else if (transform.position.y < -15f && _gameOverBool)
         {
             _gameOver.gameObject.SetActive(true);
             _game.text = "Game Over!";
