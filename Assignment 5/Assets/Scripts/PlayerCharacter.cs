@@ -13,8 +13,14 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] private Image _gameWon;
     [SerializeField] private Image _inventory;
     [SerializeField] private Text _healthText;
+    [SerializeField] private Image _slot1;
+    [SerializeField] private Image _slot2;
+    [SerializeField] private Image _slot3;
+    [SerializeField] private Image _slot4;
+    [SerializeField] private Image _slot5;
     private bool _gameOverBool = false;
     private bool _active;
+    private int _slotCounter = 0;
     void Start()
     {
         _health = 5;
@@ -84,9 +90,32 @@ public class PlayerCharacter : MonoBehaviour
         }
 
     }
-    public void Respawn()
+    public void InventoryImage(ItemData slot)
     {
-        transform.position = _respawn;
+        
+        _slotCounter++;
+        switch (_slotCounter)
+        {
+            case 1:
+                _slot1.GetComponent<Image>().sprite = slot.Sprite;
+                break;
+            case 2:
+                _slot2.GetComponent<Image>().sprite = slot.Sprite;
+                break;
+            case 3:
+                _slot3.GetComponent<Image>().sprite = slot.Sprite;
+                break;
+            case 4:
+                _slot4.GetComponent<Image>().sprite = slot.Sprite;
+                break;
+            case 5:
+                _slot5.GetComponent<Image>().sprite = slot.Sprite;
+                break;
+            default:
+                print("Inventory Full");
+                break;
+        }
+
     }
 
 }
